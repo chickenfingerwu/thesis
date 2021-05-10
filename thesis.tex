@@ -242,8 +242,7 @@ Chính vì thế, một phương pháp để tự động sinh ra các dữ li�
 \begin{center}
 	\textbf{\large ABSTRACT}
 \end{center}
-Kanji is a very important aspect in Japanese literature and everyday life. In the digital age, the needs to digitized handwritten documents is also increasingly becoming important. Optical Character Recognition (OCR) is widely used for this purpose. But one of the hardest problem to tackle is perhaps identifying written kanji, since there is such a large amount of characters in the kanji writing system, OCR model can fail when met with an unfamiliar kanji given the shortage of quantity and variety of data samples. Thus this research project seeks to expand upon the existing dataset by leveraging the generative capability of Generative Adversarial Networks to synthesize new samples from existing data, using a variety of generative techniques that has been proven to produce highly authentic results. Another goal is to provide a pre-trained model capable of synthesizing data samples for new data samples.
-The currently available ETL Japanese handwritten dataset \cite{etl} currently has roughly 200 samples for over 2000 kanji character, with this project, a more variety of samples and new data can be added.
+Kanji is a very important aspect of Japanese literature and everyday life. In the digital age, the need to digitized handwritten documents is also increasingly becoming important. Optical Character Recognition (OCR) is widely used for this purpose. But one of the hardest problems to tackle is perhaps identifying written kanji, since there is such a large amount of characters in the kanji writing system, OCR models can fail when met with an unfamiliar kanji given the shortage of quantity and variety of data samples. Thus this research project seeks to expand upon the existing dataset by leveraging the generative capability of Generative Adversarial Networks to synthesize new samples from existing data, using a variety of generative techniques that have been proven to produce highly authentic results. Another goal is to provide a pre-trained model capable of synthesizing data samples for new data samples. The currently available ETL Japanese handwritten dataset \cite{etl} currently has roughly 200 samples for over2000 kanji characters, with this project, a more variety of samples and new data can be added.
 
 %-----TOC-----%
 \newpage
@@ -284,55 +283,53 @@ The currently available ETL Japanese handwritten dataset \cite{etl} currently ha
 \label{chap:intro}
 
 \section{Motivation}
-The availability of a large sample database is very important to design high accuracy
-classifiers for handwritten characters recognition. Though, for such a database to be manually collected either from human writers or practical documents is expensive, particularly for large characters set, for example, the Japanese Kanji. To
+The availability of a large sample database is very important to design high-accuracy
+classifiers for handwritten character recognition. Though, for such a database to be manually collected either from human writers or practical documents is expensive, particularly for large characters set, for example, the Japanese Kanji. To
 collect a sufficient quantity is a time-consuming and expensive task, much more so
 for a large characters set such as the Japanese Kanji writing system with over 50,000
 characters in total and more than 2,000 commonly used characters. Kanji are
-commonly used in every aspect of Japanese’s daily life such as documents writing,
+commonly used in every aspect of Japanese’s daily life such as document writing,
 especially handwritten Kanji.
 Japanese Kanji writing system has a complex structure and rules of writing that
-requires years of practice and memorization. Such skills for a long time were
-essential in education, employment or living in Japan. However, in the digital age
-this might no longer be the case with the prevalent of electronic devices such as
+require years of practice and memorization. Such skills for a long time were
+essential in education, employment, or living in Japan. However, in the digital age,
+this might no longer be the case with the prevalence of electronic devices such as
 phones, computers, the needs for writing Kanji are becoming less and less important.
 Though, many people in Japan still consider handwriting an art form like calligraphy
 or as an artistic expression. The needs for handwritten Kanji however have not
-disappeared, as documents are still filled out by hands, or old literature that needs to be preserved, and thus need to be digitized. To digitize such large amounts of data manually would be expensive and time-consuming, that’s
-why a high accuracy optical recognition model is a very important in order to
-automate this process. Thus, the needs for a sufficient database samples is needed.
-One of the hardest problem to tackle is perhaps identifying written kanji, since there
-is such a large amount of characters in the kanji writing system, OCR model can fail
+disappeared, as documents are still filled out by hands, or old literature that needs to be preserved, and thus need to be digitized. To digitize such large amounts of data manually would be expensive and time-consuming, that’s why a high accuracy optical recognition model is very important to automate this process. Thus, a sufficiently large database is needed.
+One of the hardest problems to tackle is perhaps identifying written kanji, since there
+is such a large amount of characters in the kanji writing system, OCR models can fail
 when met with an unfamiliar kanji given the shortage of quantity and variety of data
 samples. Manually collecting handwritten samples or asking for volunteers to write more would be very expensive and time-consuming since each Kanji would require hundreds of samples from different writers and there are thousands of Kanji characters. Thus this research project seeks to expand upon the existing dataset by
 leveraging the generative capability of Generative Adversarial Networks to
 synthesize new samples from existing data, using a variety of generative techniques
-that has been proven to produce highly authentic results. Another goal is to provide
+that have been proven to produce highly authentic results. Another goal is to provide
 a pre-trained model capable of synthesizing data samples for new data samples.
 The currently available ETL Japanese handwritten dataset \cite{etl} currently has roughly 200
 samples for over 2000 kanji character, with this project, a more variety of samples
 and new data can be added.
 
 \section{Research objective}
-The goal of this research is to improve upon the existing handwritten Japanese dataset by 
-using deep learning generative based method.
+The goal of this research is to improve upon the existing handwritten Japanese dataset by
+using deep learning generative-based method.
 The existing ETL dataset has provided sufficient samples for the hiragana and
-katakana alphabets with more than 2000 samples for each characters, meanwhile,
+katakana alphabets with more than 2000 samples for each character, meanwhile,
 only a handful of kanji handwritten samples have been provided, not to mention, not
 all samples are handwritten but are actually in font style.
 Since Chinese characters and the Kanji writing system are so similar, I decided to
 take a look at both domains of research. Existing generative methods for similar
 logographic alphabets have mainly been focusing on generating Chinese calligraphy
-rather than handwritten styles, this may be due to the fact that there is already a
+rather than handwritten styles, this may be because there is already a
 widely used handwritten Chinese dataset \cite{casia}, and not a lot of focus has been on
-generating handwritten Japanese kanjis in particular, or even Chinese characters. This
-research aims to address the lacks of models for generating handwritten Kanji.
+generating handwritten Japanese kanjis in particular. This
+research aims to address the lack of models for generating handwritten Kanji.
 
 \section{Contribution}
-In this thesis, we propose a new model that combines approaches from previous works MUNIT\cite{munit} and GANimorph\cite{ganimorph} by using the variational-autoencoder generators from MUNIT and dilated discriminators from GANimorph to diversify the styles and shapes of generated handwritten characters, along with auxiliary loss for stabilizing GANs training. We compare our results with image-to-image translation model like CycleGAN\cite{cycle-gan}, as well as with the original MUNIT\cite{munit} model and show that our model can generate a more stable and diverse results.
+In this thesis, we propose a new model that combines approaches from previous works MUNIT\cite{munit} and GANimorph\cite{ganimorph} by using the variational-autoencoder generators from MUNIT and dilated discriminators from GANimorph to diversify the styles and shapes of generated handwritten characters, along with auxiliary loss for stabilizing GANs training. We compare our results with image-to-image translation models like CycleGAN\cite{cycle-gan}, as well as with the original MUNIT\cite{munit} model and show that our model can generate more stable and diverse results.
 
 \section{Thesis organization}
-The rest of this thesis will be catagorized as follow \textbf{Chapter \ref{chap:background}} will introduce prerequisites knowledge for our methodology. \textbf{Chapter \ref{chap:methodology}} Outlines our proposed method, implementations as well as go into details of some neccessary theories. \textbf{Chapter \ref{chap:experiments}} Experiments done with CycleGAN and the proposed model, comparision between results of the 2 networks. \textbf{Chapter \ref{chap:conclusion}} final conclusion of the thesis as well as the achieved results, future plans.
+The rest of this thesis will be catagorized as follow \textbf{Chapter \ref{chap:background}} will introduce prerequisites knowledge for our methodology. \textbf{Chapter \ref{chap:methodology}} Outlines our proposed method, implementations as well as go into details of some necessary theories. \textbf{Chapter \ref{chap:experiments}} Experiments done with the proposed model, evaluations against other models. \textbf{Chapter \ref{chap:conclusion}} final conclusion of the thesis and the achieved results, future plans.
 
 
 \newpage	
@@ -341,20 +338,20 @@ The rest of this thesis will be catagorized as follow \textbf{Chapter \ref{chap:
 
 \section{Challenges in handwritten text generation}
 
-In contrast to phonological languages like English which only has 26 letters in their alphabets, logographic languages like Japanese have well over 50,000 kanji letters in existent, with over 2,000 commonly used kanjis. These numbers make it much more challenging to produce a personalized font for kanji characters.
-Most methods for English character generation utilized the sequential nature of handwritten English text in order to produce realistic results since each character written in English is influenced directly by what’s written in front of it. Thus, in order to capture the realistic nature of the text, generative model like \cite{scrabble-gan} use only as many as 1 style noise to guide the whole generative process since characters are influenced by each other, the whole text need only be in 1 style. Logographic alphabet like Japanese are more difficult to produce realistically handwritten samples since the strokes in logogram writing system are not sequential, they are not influence directly by what character are written before them but rather follows a set of rules and orders which can be more difficult to quantify as a mathematical or logical problem. Handwritten style for characters such as these can also be difficult to produce since each strokes are not always connected directly or followed each other sequentially which poses difficulty when attempting to imitate such style globally.
+In contrast to phonological languages like English which only has 26 letters in their alphabets, logographic languages like Japanese have well over 50,000 kanji letters, with over 2,000 commonly used kanjis. These numbers make it much more challenging to produce a personalized font for kanji characters.
+Most methods for English character generation utilized the sequential nature of handwritten English text in order to produce realistic results since each character is influenced directly by what’s written in front of it. Logographic alphabet like Japanese is more difficult to produce realistically handwritten samples since the strokes in logogram writing system are not sequential, they are not influenced directly by what character are written before them but rather follows a set of rules and orders which can be more difficult to quantify as a mathematical or logical problem. Handwritten styles for characters such as these can also be difficult to produce since each stroke is not always connected directly or followed each other sequentially which poses difficulty when attempting to imitate such style globally.
 
-Early methods like \cite{automatic-calligraphy}, \cite{automatic-handwritten} use the split and merge approach where characters are decomposed into components, then merge back together using some form of synthesize algorithm to produce new samples of writing style, either handwritten or calligraphy. These approaches are limited in that they can only focus on the local representation of the decomposed strokes rather than the whole style of the character, also that logogram characters with complex structure are difficult to be decomposed automatically, and require manual decomposition for certain styles to assure structural integrity such as the cursive script \cite{intel-system}.
-Online based methods \cite{online-kanji} \cite{online-kanji-2} are able to produce believable images but doesn’t have the uniform thickness a handwritten character should have and suffer from the same problem of localized representation rather than globally. Obtaining online dataset can also be difficult and much more difficult to process than offline dataset.
+Early methods like \cite{automatic-calligraphy}, \cite{automatic-handwritten} use the split and merge approach where characters are decomposed into components, then merge back together using some form of synthesizing algorithm to produce new samples of writing style, either handwritten or calligraphy. These approaches are limited in that they can only focus on the local representation of the decomposed strokes rather than the whole style of the character, also that logogram characters with complex structures are difficult to be decomposed automatically, and require manual decomposition for certain styles to assure structural integrity such as the cursive script \cite{intel-system}.
+Online-based methods \cite{online-kanji} \cite{online-kanji-2} are able to produce believable images but don’t have the uniform thickness a handwritten character should have and suffer from the same problem of localized representation rather than globally. Obtaining an online dataset can also be difficult and much more difficult to process than an offline dataset.
 GANs approaches like \cite{zi2zi}\cite{handwritten-cgan}\cite{calligan}\cite{scrabble-gan}\cite{gan-writting} incorporate a recognizer network to promote realism in generated images. \cite{gan-writting} focuses more on out of vocabulary word generation rather than character structure. While \cite{scrabble-gan} is implemented with sequential words in mind rather than logographic characters. \cite{zi2zi} requires paired dataset and this can be hard to obtain given how many Kanjis there are, it would be infeasible to ask volunteers to write thousands of characters. \cite{handwritten-cgan} provides an interesting combination of both cGAN \cite{cgan} and cVAE \cite{cvae} but haven’t able to produce tangible results. \cite{calligan} so far is the most in-line with this research problem but still has its reliance on external system \cite{casia} and also requires paired dataset.
 
 \section{Approaches}
-For over 20 years, there have been many approaches in generating different style characters, be it latin-based or logographic writing system.
-Some leveraged the complex structure of Kanji or Chinese characters by decomposing them into components, defined a set of artistic constraints that belongs to different style and impose them onto newly generated samples. Other approaches decomposed training samples characters into components, synthesize and combining them to generate new samples.
+For over 20 years, there have been many approaches in generating different style characters, be it Latin-based or logographic writing systems.
+Some leveraged the complex structure of Kanji or Chinese characters by decomposing them into components, defined a set of artistic constraints that belongs to different styles, and impose them onto newly generated samples. Other approaches decomposed training sample characters into components, synthesize and combining them to generate new samples.
 
-Another kind of approaches utilized online instead of offline handwriting samples, meaning data about written strokes by users can be used such as pen trajectory, writing speed and thickness of stroke portions.
+Another kind of approach utilized online instead of offline handwriting samples, meaning data about written strokes by users can be used such as pen trajectory, writing speed, and thickness of stroke portions.
 
-Recently, with the development of GAN paradigm, new approaches can utilize powerful generative capabilities of neural network without having to explicitly define constraints in order to generate believable new samples.
+Recently, with the development of the GAN paradigm, new approaches can utilize powerful generative capabilities of neural networks without having to explicitly define constraints in order to generate believable new samples.
 
 \begin{figure}[h]
 	\centering
@@ -363,53 +360,25 @@ Recently, with the development of GAN paradigm, new approaches can utilize power
 	\label{fig:hierarch-comp}
 \end{figure}
 
-Xu et al.\cite{automatic-calligraphy} decomposed Chinese characters into hierarchical representation of their
-strokes, defined a set of artistic constraints for these family of strokes, by means of
-data prediction (interpolation or extrapolation), generate new hierarchical strokes
-family that must satisfy the set of constraints. The generation algorithm is based on
-analogical reasoning process (ARP), where multiple variations of constructive
-elements are extracted from training examples and blended together to form a new
-variation of the same strokes that must satisfy some aesthetic constraints learned
-from the training examples.
-Another work done by Xu et al.\cite{automatic-handwritten} attempts to generate personalized Chinese
-handwriting by capturing the characteristic of writers through estimating the
-likelihood that a character elements belongs under a writer X’s writing style. This
-method also decomposed Chinese characters into hierarchical representation of their
-strokes, then defined a set of grammar rules for composing the original character
-based on these stroke components. The handwritten characteristics are learned by 2
-neural networks, these 2 models learn the confidence and likelihood score that are
-needed in order for a character element to belong under a specific handwriting style.
-The generation algorithm is an optimized version of the ARP process in the previous
-work by the same author, tuned for finding the most suitable permutation for a
-writing style.
-Lin et al.\cite{handwritten-font} proposed collecting handwritten data from users, extracting the
-components from characters, synthesized these components then used a selecting
-algorithm to randomly generate new characters.
-Liu et al\cite{automatic-personalized} used a similar approach by collecting samples of handwritten characters
-or character’s components then randomly select written components or characters
-following a probability distribution then combining them to generate new samples.
-The problems with focusing only on the parameterization of character components
-is that it only focuses on the local representation of strokes rather than the whole
-style of a characters thus may lead to inconsistency in the generated image as a whole.
+Xu et al.\cite{automatic-calligraphy} decomposed Chinese characters into a hierarchical representation of their
+strokes, defined a set of artistic constraints for these family of strokes, by means of data prediction (interpolation or extrapolation), and generate a new hierarchical strokes family that must satisfy the set of constraints. The generation algorithm is based on the analogical reasoning process (ARP), where multiple variations of constructive elements are extracted from training examples and blended together to form a new variation of the same strokes that must satisfy some aesthetic constraints learned from the training examples.
+Another work done by Xu et al.\cite{automatic-handwritten} attempts to generate personalized Chinese handwriting by capturing the characteristics of writers through estimating the likelihood that a character's elements belong under a writer X’s writing style. This
+method also decomposed Chinese characters into a hierarchical representation of their strokes, then defined a set of grammar rules for composing the original character based on these stroke components. The handwritten characteristics are learned by 2
+neural networks, these 2 models learn the confidence and likelihood scores that are needed in order for a character element to belong under a specific handwriting style. The generation algorithm is an optimized version of the ARP process in the previous
+work by the same author, tuned for finding the most suitable permutation for a writing style. Lin et al.\cite{handwritten-font} proposed collecting handwritten data from users, extracting the
+components from characters, synthesized these components then used a selecting algorithm to randomly generate new characters.
+Liu et al\cite{automatic-personalized} used a similar approach by collecting samples of handwritten characters or character’s components then randomly select written components or characters
+following a probability distribution then combining them to generate new samples. The problem with focusing only on the parameterization of character components is that it only focuses on the local representation of strokes rather than the whole
+style of characters thus may lead to inconsistency in the generated image as a whole.
 
-Typography is a type of style transfer problems whereby a designer has to arrange the typeface, layout, spacing, grids of words in order to make them appealing and legible with different style. Artistic calligraphy is an art form exist in Chinese or Japanese culture where by characters are written in different styles to convey expressions by the artists. Usually, each artists calligraphy style is different.
+Typography is a type of style transfer problem whereby a designer has to arrange the typeface, layout, spacing, grids of words in order to make them appealing and legible with different styles. 
 
 Yang et al.\cite{awesome-typography} approach the typography problem by exploiting the analytics on the
-high regularity of the spatial distribution for text effects to guide the synthesis
-process
-Lian et al.\cite{automatic-morphing} tackle shape morphing characters into different style by template
-constructing using character skeleton, strokes, key points and connection triangles
-for every Chinese character in the standard Kaiti font library, then breakdown the
-strokes of the source and target characters to find correspondence values between
-them and the template shape, afterward mesh transform the source to target character
-by shape interpolation.
-Meanwhile zi2zi \cite{zi2zi} utilized generative adversarial network with category
-embedding for one-to-many mapping between a character and its many variation in
-style in order to generate new samples, however this requires paired dataset and that
-can be hard to come by
+high regularity of the spatial distribution for text effects to guide the synthesis process. Lian et al.\cite{automatic-morphing} tackle shape morphing characters into different style by template constructing using character skeleton, strokes, key points, and connection triangles for every Chinese character in the standard Kaiti font library, then breakdown the strokes of the source and target characters to find correspondence values between them and the template shape, afterward mesh transform the source to target character by shape interpolation.
+Meanwhile, zi2zi \cite{zi2zi} utilized generative adversarial network with category embedding for one-to-many mapping between a character and its many variations in style in order to generate new samples, however, this requires paired dataset and that can be hard to come by
 
-Liu et al.\cite{online-kanji} utilized on-line databases of written Kanji characters to generate new styles by combining pen trajectory with shape pattern with 3 modes of writing, connected lines, proportional line or kanji style. Connected line modes connect point from the pen trajectory with uniform thickness, while the proportional mode assumes the thickness from the writing speed, and the kanji mode generates character with brush-like characteristic.
-Liu et al.\cite{online-kanji-2} an improved approach to \cite{online-kanji}, this new method can cope with connected strokes, decomposed strokes into 3 parts: start part, end part and bend part then paint each part according to a prototypal shape assigned to it from a calligraphy library.
+Liu et al.\cite{online-kanji} utilized online databases of written Kanji characters to generate new styles by combining pen trajectory with shape pattern with 3 modes of writing, connected lines, proportional line, or kanji mode. Connected line modes connect points from the pen trajectory with uniform thickness, while the proportional mode assumes the thickness from the writing speed, and the kanji mode generates character with brush-like characteristics.
+Liu et al.\cite{online-kanji-2} an improved approach to \cite{online-kanji}, this new method can cope with connected strokes, decomposed strokes into 3 parts: start part, end part, and bend part then paint each part according to a prototypal shape assigned to it from a calligraphy library.
 
 \begin{figure}[h]
 	\centering
@@ -418,12 +387,11 @@ Liu et al.\cite{online-kanji-2} an improved approach to \cite{online-kanji}, thi
 	\label{fig:style-transfer}
 \end{figure}
 
-Current image style transfer methods can be divided into 2 categories \cite{neural-style}, descriptive neural methods or generative neural methods. Descriptive neural methods transfer the styles by computing the gradients between the source and target image then update pixels in the generated image iteratively. Generative neural methods however, first fine tuning a generative model and generate styled images in a single forward pass. The descriptive methods only works for a single target image which makes it time consuming and harder to capture a complete style of a domain, while the generative methods works faster but produce poorer results.
+Current image style transfer methods can be divided into 2 categories \cite{neural-style}, descriptive neural methods, or generative neural methods. Descriptive neural methods transfer the styles by computing the gradients between the source and target image then update pixels in the generated image iteratively. Generative neural methods first fine-tune a generative model and generate styled images in a single forward pass. Descriptive methods, however, only work for a single target image which makes it time-consuming and harder to capture a complete style of a domain, while the generative methods work faster but produce poorer results.
 
-Most GAN\cite{gan} approaches try to incorporate some kind of content or style losses in order to promote realistic looking images. Many attempts to also separate the style and content for better results at style transferring.
-\cite{handwritten-cgan} Combines cGAN \cite{cgan} and cVAE \cite{cvae} into one, cVAE (conditional variational autoencoder) is VAE with one hot encoded label of the character as additional input for the encoder. Both model is trained end-to-end by feeding the sample from the latent space generated by the encoder of cVAE conditioned on the class of the character to the cGAN model when training to utilize the semantic of the character generated.
-\cite{calligan} trains a generator conditioned on the style label of a writer and the structure of the desired character – by decomposing the character into sequence of components then encode into a component vector. The discriminator is trained on a ground truth (pixel-wise) loss – ensure the similarity between the generated image and ground truth image, adversarial loss – to ensure the generated image looks realistic, constancy loss – ensure the generated image and the font-rendered-image have similar feature vectors. and a category loss – ensure the generated image retained the style of the writer.
-\cite{handwritten-cyclegan} proposes using a DenseNet for the transfer module of CycleGAN instead of ResNet. The transfer module handles extracting feature from a domain, using a DenseNet supposedly improves the flows of information through each block by connecting them directly witch each other.
+Most GAN\cite{gan} approaches try to incorporate some kind of content or style losses to promote realistic-looking images. Many attempts to also separate the style and content for better results at style transferring. \cite{handwritten-cgan} combines cGAN \cite{cgan} and cVAE \cite{cvae} into one, cVAE (conditional variational autoencoder) is VAE with one-hot encoded label of the character as additional input for the encoder. Both models are trained end-to-end by feeding the sample from the latent space generated by the encoder of cVAE conditioned on the class of the character to the cGAN model when training to utilize the semantic of the character generated.
+\cite{calligan} trains a generator conditioned on the style label of a writer and the structure of the desired character – by decomposing the character into a sequence of components then encode into a component vector. The discriminator is trained on ground truth (pixel-wise) loss – ensures the similarity between the generated image and ground truth image, adversarial loss – encourages realistic images, constancy loss – promotes feature vectors between the generated and font-rendered image, and a category loss that ensures the generated image retained the style of the writer.
+\cite{handwritten-cyclegan} proposes using a DenseNet for the transfer module of CycleGAN instead of ResNet. The transfer module handles extracting features from a domain, using a DenseNet supposedly improves the flows of information through each block by connecting them directly with each other.
 
 \begin{figure}[h]
 	\centering
@@ -432,12 +400,11 @@ Most GAN\cite{gan} approaches try to incorporate some kind of content or style l
 	\label{fig:handwritten-cycle-gan-result}
 \end{figure}
 
-\cite{scrabble-gan}, \cite{gan-writting} uses a text recognition network in addition to a discriminator in the GAN paradigm to promotes realistic and readable handwriting styles. In \cite{scrabble-gan}, the generator is a concatenation of multiple convolutional class conditional generators with overlapping receptive fields to simulate influence of characters next to each other in the same word.
-Uses a noise vector to control the style generated, the discriminator has to also accounts for the output style of the generated image when discriminating between the fake and real images.
-\cite{gan-writting} incorporates style and textual content from 2 learning branches to feed to a generator. Style and content are learnt independently. The content network outputs textual content feature at 2 different levels, low-level feature encodes the different characters that form a word along with their spatial position within the input string. The network is constrained on an alphabet of allowed characters and maximum character length a word can have. This encoding allows the network to produce out of vocabulary (never seen before) words. The other level is global string encoding that concatenate all character embedding into a large one dimensional tensor that will then be injected into the generator.
-Has a style loss to control similarity to the style of the input image – the network has a style classifier trained on the real input dataset, a content loss to control the integrity of the input textual content.
-\cite{adversarial-gen} uses bidirectional LSTM recurrent layers \cite{lstm} to get an embedding of sequence of the word to be rendered as additional input to the network. The author also added an auxiliary text recognition network to encourage the generator to produced readable images. In order to reconcile the losses between the discriminator and recognizer network, the model also has an affine transformation layer in order to balance the 2 losses before propagating it back to the generator.
-\cite{hw-gan} presents a GAN architecture for synthesizing handwritten digital ink text, uses a Path Signature Feature extractor follow by a CNN-LSTM classifier which act as the discriminator in the GAN paradigm.
+\cite{scrabble-gan}, \cite{gan-writting} use a text recognition network in addition to a discriminator in the GAN paradigm to promotes realistic and readable handwriting styles. In ScrabbleGAN\cite{scrabble-gan}, the generator is a concatenation of multiple convolutional class conditional generators with overlapping receptive fields to simulate the influence of characters next to each other in the same word. They use a noise vector to control the style of the generated image, thus, the discriminator has to also accounts for the output style of the generated image when discriminating between the fake and real images.
+\cite{gan-writting} incorporates style and textual content from 2 learning branches to feed to a generator. Style and content are learned independently. The content network outputs textual content features at 2 different levels, low-level feature encodes the different characters that form a word along with their spatial position within the input string. The network is constrained on an alphabet of allowed characters and maximum character length a word can have. This encoding allows the network to produce out-of-vocabulary (never seen before) words. The other level is global string encoding that concatenates all character embedding into a large one-dimensional tensor that will then be injected into the generator.
+The network uses a style classifier trained on the real input dataset to control the generated style. A content discriminator is used to control the integrity of the input textual content.
+\cite{adversarial-gen} uses bidirectional LSTM recurrent layers \cite{lstm} to get an embedding of the input word as an additional input to the network. The author also added an auxiliary text recognition network to encourage readable images from the generator. To reconcile the losses between the discriminator and recognizer network, an affine transformation layer is used to balance the 2 losses before propagating them back to the generator.
+\cite{hw-gan} presents a GAN architecture for synthesizing handwritten digital ink text, which uses a Path Signature Feature extractor follow by a CNN-LSTM classifier that acts as the discriminator in the GAN paradigm.
 
 Since deep learning models offer automation and adaptability to new data, we decided to use the GAN paradigm to approach this problem.
 
@@ -458,7 +425,7 @@ Since deep learning models offer automation and adaptability to new data, we dec
 \end{figure}
 
 Generative adversarial Network (GAN) is a generative model architecture that was proposed in 2014 by Ian Goodfellow et al.\cite{gan} that works on principles of a zero-sum game between a generator and a discriminator. This architecture has proven to be powerful and effective that has achieved stunning results in several computer vision tasks like inpainting \cite{image-completion}, image-to-image translation \cite{cycle-gan} or in other domains such as speech synthesis \cite{audio-gan} and cross-language translation \cite{nlp}.
-GAN consists of 2 networks: Generator (G) and Discriminator (D). Generator generates images by compressing data into latent space and decodes them back to images – done by using encoders and decoders. G will generates new data instances while D evaluates them for authenticity. The Discriminator ‘judges’ the result of Generator -  i.e. the Discriminator decides whether each instance of data that it reviews belongs to the actual training dataset or not - and feed the error back to the Generator. In essence, D learns to determine whether a sample is from a domain data distributions. To quote an example from the original GAN paper \cite{gan}:
+GAN consists of 2 networks: Generator (G) and Discriminator (D). The generator generates images by compressing data into latent space and decodes them back to images – done by using encoders and decoders. G will generate new data instances while D evaluates them for authenticity. The Discriminator ‘judges’ the result of Generator - i.e. the Discriminator decides whether each instance of data that it reviews belongs to the actual training dataset or not - and feeds the error back to the Generator. In essence, D learns to determine whether a sample is from a domain data distribution. To quote an example from the original GAN paper \cite{gan}:
 
 \say{The generative model can be thought of as analogous to a team of counterfeiters,trying  to  produce  fake  currency  and  use  it  without  detection,  while  the  discriminative  model  is analogous to the police, trying to detect the counterfeit currency. Competition in this game drives both teams to improve their methods until the counterfeits are indistiguishable from the genuine articles.}
 
@@ -474,7 +441,7 @@ Here are the steps a GAN takes:
 	\item Repeats until both networks reach an equilibrium of G is able to generate samples that are indistinguishable from the real domains.
 \end{itemize}
 
-The Generator is in a feedback loop with the Discriminator. Another thing to point out is that advesarial loss is calculated based on how well D can evaluate the fake samples. When the model converges means that D can't tell that the samples are fake, this however does not indicate whether or not they objectively look like real samples. Thus, the results of GAN trainings should be decided by human examinations.
+The Generator is in a feedback loop with the Discriminator. Another thing to point out is that adversarial loss is calculated based on how well D can evaluate the fake samples. When the model converges means that D can't tell that the samples are fake, however does not indicate whether or not they objectively look like real samples. Thus, the results of GAN training should be decided by human examinations.
 
 \[E_x[log(D(x))] + E_z[log(1 - D(G(z)))]\]
 
@@ -482,7 +449,7 @@ Above is the adversarial loss equation in the original GAN paper, where $x$ is a
 
 \section{CycleGAN for unpaired image style transfer and its limitations}
 
-Even though GAN models such as zi2zi \cite{zi2zi} is able to synthesize convincing characters, its requirements for a paired dataset can be expensive and time consuming to fulfill as stated in \textbf{Chapter \ref{chap:intro}} since for a Kanji dataset, it would be unfeasible to ask writers to write thousands of words with each requiring hundreds of samples. Thus, we want our method to not rely on paired dataset. 
+Even though GAN models such as zi2zi \cite{zi2zi} is able to synthesize convincing characters, its requirements for a paired dataset can be expensive and time-consuming to fulfill as stated in \textbf{Chapter \ref{chap:intro}} since for a Kanji dataset, it would be unfeasible to ask writers to write thousands of words with each requiring hundreds of samples. Thus, we want our method to not rely on a paired dataset.
 
 \begin{figure}[H]
 	\centering
@@ -491,9 +458,9 @@ Even though GAN models such as zi2zi \cite{zi2zi} is able to synthesize convinci
 	\label{fig:pair-unpair-dataset}
 \end{figure}
 
-In order to tackle the problem of lacking paired dataset, one of the popular model for unpaired image-to-image translation problem is CycleGAN \cite{cycle-gan}. CycleGAN is a multi-purpose Generative Advesarial Network using cycle consistency loss and aversarial loss to give the model a multi-purpose procedure. In our case, we can use the model for collection style transfer.
+To tackle the problem of lacking a paired dataset, one of the most popular models for unpaired image-to-image translation problems is CycleGAN \cite{cycle-gan}. CycleGAN is a multi-purpose Generative Adversarial Network using cycle consistency loss and adversarial loss to give the model a multi-purpose procedure. In our case, we can use the model for collection style transfer.
 
-One of the distinct aspects about CycleGAN\cite{cycle-gan} from other unpaired image-to-image translation models is its cyclic training procedure, wherein 2 pairs of Generator - Discriminator are trained, one for each domain. These 2 pairs learn the mapping functions from one to the other by using a regularize loss function to ensure a regularized latent space between each domains. This training is thus cycle-consistence, meaning a translated image should be able to revert back to its original domain using the mapping function of the corresponding domain, this is enforced by a cycle-consistency loss. This procedure supposedly regularizes the 2 distributions in a large enough dataset wherein an irregularized distribution could cause a set of inputs $x_i$$\in$$X$ to be mapped to any possible permutations of $y_i$$\in$$Y$ instead of the desired output.
+One of the distinct aspects about CycleGAN\cite{cycle-gan} from other unpaired image-to-image translation models is its cyclic training procedure, wherein 2 pairs of Generator - Discriminator are trained, one for each domain. The network learns the mapping functions between 2 domains by using a regularize loss function to ensure a regularized latent space between each domain (discussion on regular latent space will be in the next section of this chapter). This training is thus cycle-consistence, meaning a translated image should be able to revert to its original domain using the mapping function of the corresponding domain, this is enforced by a cycle-consistency loss. This procedure supposedly regularizes the 2 distributions in a large enough dataset wherein an irregular distribution could cause a set of inputs $x_i$$\in$$X$ to be mapped to any possible permutations of $y_i$$\in$$Y$ instead of the desired output.
 
 \begin{figure}[H]
 	\centering
@@ -502,9 +469,9 @@ One of the distinct aspects about CycleGAN\cite{cycle-gan} from other unpaired i
 	\label{fig:cycle-consistence}
 \end{figure}
 
-However, CycleGAN is limited in its mapping capabilities in that it can only map 1:1 the distribution of 2 domains. Meaning, for one input image there can be only one corresponding image the model can output. This is due to the static input for CycleGAN which is different from conventional GANs that requires a noise vector as input. Whereas CycleGAN takes as input an image from the source domain in the hope that with a large and complex dataset, the input images can serve in place of a noise vector. This effectively eliminates any variables from the data distributions and instead relies on dataset complexity, thus leads to a lacking in variety of the generated results. However, even when equipped with additional noise vector, the CycleGAN cannot generate diversified results as documented in \cite{augmented-cyclegan} 
+However, CycleGAN is limited in its mapping capabilities in that it can only map 1:1 the distribution of 2 domains. Meaning, for one input image there can be only one corresponding image the model can output. This is due to the static input for CycleGAN which is different from conventional GANs that requires a noise vector as input. Whereas CycleGAN takes as input an image from the source domain in the hope that with a large and complex dataset, the input images can serve in place of a noise vector. This effectively eliminates any variables from the data distributions and instead relies on dataset complexity, thus leads to a lacking in varieties of the generated results. However, even when equipped with an additional noise vector, the CycleGAN cannot generate diversified results as documented in \cite{augmented-cyclegan}
 
-In order to address the lack of diversity in results of CycleGAN, there has been a number of proposed methods built from the same framework \cite{munit}\cite{bicycle-gan}\cite{disco-gan}\cite{bayesian-cyclegan}. MUNIT\cite{munit} suggests using 2 variational autoencoders (VAE) as generators, each VAE consists of 3 networks - 2 encoders, 1 decoder. One encoder learns to map the image contents to its latent space, the other do the same for images styles. The encoded content and style act as inputs to the decoder. The decoder tries to reconstruct the image based on the 2 inputs. This basically solves the problem of not having any noise in the input as the style vector can act as noise, thus we can have more diversity in the generated results. This architecture is in line with what we are trying to do.
+To address the lack of diversity in the results of CycleGAN, there has been several proposed methods built from the same framework such as \cite{munit}\cite{bicycle-gan}\cite{disco-gan}\cite{bayesian-cyclegan}. MUNIT\cite{munit} suggests using 2 variational autoencoders (VAE) as generators, each VAE consists of 3 networks - 2 encoders, 1 decoder. One encoder learns to map the image contents to its latent space, the other does the same for image styles. The encoded content and style act as inputs to the decoder. The decoder tries to reconstruct the image based on the 2 inputs. This solves the problem of not having any noise in the input as the style vector can act as noise, thus we can have more diversity in the generated results. This architecture is in line with what we are trying to do.
 
 \begin{figure}[h]
 	\centering
@@ -530,16 +497,16 @@ Another problem of CycleGAN is that it's really hard to change the shape informa
 \end{figure}
 
 
-This is due to the patch-based mechanism of CycleGAN's discriminator. Each patch of the generated image is evaluated by the discriminator thus leading it to unable to learn the whole context of the image, effectively preventing the generator from outputting any image that strays too far from the original source \cite{ganimorph}.
+This is due to the patch-based mechanism of CycleGAN's discriminator. Each patch of the generated image is evaluated by the discriminator thus leading it to unable to learn the whole context of the image, effectively preventing the generator from outputting any image that strays too far from the source image \cite{ganimorph}.
 
-\cite{ganimorph} proposed using dilated convolution for the discriminator to improve the shape deformation capabilitiy of CycleGAN. The dilated discriminator can learn the context of the image and thus can evaluate the entire image as a whole. 
+\cite{ganimorph} proposed using dilated convolution for the discriminator to improve the shape deformation capability of CycleGAN. The dilated discriminator can learn the context of the image and thus can evaluate the entire image as a whole.
 
-For these reasons, we propose combining both of these approaches by MUNIT\cite{munit} which utilizes variational autoencoders for image generation and GANimorph\cite{ganimorph} for discrimination by segmentation to make our KanjiGAN model, with our own auxiliary loss and data augmentation module to diversify and stabilize generated results for the problem of generating handwritten Japanese characters.
+For these reasons, we propose combining both of these approaches by MUNIT\cite{munit} which utilizes variational autoencoders for image generation and GANimorph\cite{ganimorph} for discrimination by segmentation to make our KanjiGAN model, with a stabilizing auxiliary loss and data augmentation module to diversify and stabilize generated results for the problem of generating handwritten Japanese characters.
 
 \section{Latent space and Variational autoencoder - VAE}
 \subsection{Latent space}
-Latent representation is a low-dimensional representation  – compressed data - of object in higher dimension. Latent space is the space for latent representation. For example, a feature in 6 dimensional space can be represented as a 2D feature vector through encoding. This vector is the latent representation of that feature in a 2D latent space.
-Latent representation usually only holds important features of data –  E.g: a table has 4 legs,… - Similar features will be closer together in the latent space.
+Latent representation is a low-dimensional representation – compressed data - of objects in higher dimensions. Latent space is the space for latent representation. For example, a feature in 6-dimensional space can be represented as a 2D feature vector through encoding. This vector is the latent representation of that feature in a 2D latent space.
+Latent representation usually only holds important features of data – E.g: a table has 4 legs,… - Similar features will be closer together in the latent space.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.9]{latent-space}
@@ -548,10 +515,10 @@ Latent representation usually only holds important features of data –  E.g: a 
 \end{figure}
 
 \subsection{Variational autoencoder and distribution matching}
-An autoencoder consist of 2 neural network: the encoder and the decoder.
-The encoder is a neural net that encodes the input datapoint $x$ into a representation $z$ in the latent space. The encoder learns an efficient compression of the data into lower-dimensional space.
-The decoder is another neural net that decodes $z$ into a probability representation of what the original datapoint $x$ (in the original dimension) might look like.
-This is how a classical autoencoder works, with the encoder decoder pairs learn a mapping between original data and points in the latent space.
+An autoencoder consists of 2 neural networks: the encoder and the decoder.
+The encoder is a neural net that encodes an input $x$ into a datapoint $z$ in the latent space. The encoder learns an efficient compression of the data into lower-dimensional space.
+The decoder is another neural net that decodes $z$ into a reconstruction of what the original $x$ (in the original dimension) might look like.
+This is how a classical autoencoder works, with the encoder-decoder pairs learn a mapping between original data and data points in the latent space.
 
 \begin{figure}[H]
 	\centering
@@ -560,45 +527,45 @@ This is how a classical autoencoder works, with the encoder decoder pairs learn 
 	\label{fig:autoencoder-architecture}
 \end{figure}
 
-A problem with the classical model is without regularisation of the latent space, autoencoders can easily overfit for the training data. That is, 2 close points in the latent space can only be mapped to a single output that the autoencoder has seen in the training data.
+However, a problem with the classical model is, without the regularization of the latent space, autoencoders can severely overfit the training data. That is when the latent space isn't well organized, and can't produce meaningful new content. So when we sample a new data point in the latent space, we don't get new content that is in line with the original data, but just something useless. This is because the autoencoder only cares about how to best reconstruct the inputs without any data loss, so it will try to exploit any possible mapping to attain this objective, and without any constraints, will lead to overfitting on the training data.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{irregular-latent}
-	\caption{\textit{An irregular latent space can overfit and maps 2 similar but different datapoints to a single output.}}
+	\caption{\textit{An irregular latent space can't produce meaningful new content.}}
 	\label{fig:irregular-latent}
 \end{figure}
 
-Variational autoencoders (VAEs) tackle these problems by encoding the data into distribution in the latent space as well as adding regularization terms (otherwise known as constraints) to enforce a regularized latent space. An effect of regularizing and distribution encoding is a gradient of the generative process where a point sampled from between two close distribution can have characteristics of both distributions. Whereas a irregularised latent space will have scattered mapping distribution of data. The regularization term is express as the Kulback-Leibler divergence (KL loss) \cite{kl-divergence} between the encoded distribution space and the regularized distribution - the expected distribution, which can be Gaussian or any other distributions. 
+Variational autoencoders (VAEs) solves this problem by encoding the data into distribution in the latent space as well as adding regularization terms (otherwise known as constraints) to enforce a regularized latent space. The constraints enforce the encoded distribution to match a prior distribution such as a Gaussian distribution, making it a structured and well-organized latent space, this is called \textbf{distributions matching}. An effect of a regular latent space is a gradient of the generative process where a point sampled from between two close distributions can have characteristics of both distributions. This is how we can produce new and meaningful content. The regularization term is express as the Kulback-Leibler divergence (KL loss) \cite{kl-divergence} between the encoded distribution space and the regularized distribution - the expected distribution, which can be Gaussian or any other distributions.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.9]{distribution-space}
-	\caption{\textit{An effect of regularizing and distribution encoding is a gradient of the generative process where a point sampled from between two close distribution can have characteristics of both distributions.}}
+	\caption{\textit{An effect of a regular latent space is a gradient of the generative process where a point sampled from between two close distribution can have characteristics of both distributions.}}
 	\label{fig:distribution-space}
 \end{figure}
 
-Intuitively, this KL loss denotes the distance between 2 distributions - the encoded latent space and the expected latent space - which has the effect of encouraging the 2 distributions to match each others during training, this is called \textbf{distributions matching}. In our method from \textbf{Chapter \ref{chap:methodology}}, this effect can be implicitly learned without KL loss.
+Intuitively, this KL loss denotes the distance between 2 distributions - the encoded latent space and the expected latent space - which has the effect of encouraging the 2 distributions to match each other during training, this is called \textbf{distributions matching}. In our method from \textbf{Chapter \ref{chap:methodology}}, this effect can be implicitly learned without KL loss.
 
 \chapter{Methodology}
 \label{chap:methodology}
 
 \section{KanjiGAN}
 
-We proposed combining both MUNIT and \cite{ganimorph} approaches by using the generators architecture of MUNIT and discriminator of \cite{ganimorph} while adding a lightly weighted auxiliary structure loss in order to ensure the characters structure.
+We proposed combining both MUNIT and \cite{ganimorph} approaches by using the generator architecture of MUNIT and discriminator of \cite{ganimorph} while adding a lightly weighted auxiliary structure loss in order to ensure the structure of the characters.
 
 \subsection{Model architecture}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{model-overview}
-	\caption{\textit{Our model overview. This architecture is borrowed from MUNIT\cite{munit} with some auxiliary components added by us. The 2 VAEs are swapped to learn distribution matching between 2 domains. Where $s_i$ and $c_i$ are respectively style latent code and content latent code of domain $i$. We added an auxiliary HOG loss to preserve the characters structure, as well as a data augmentation module based on \cite{augmentor} that performs elastic distortion on the target domain images, this is to widen the possible samples space for $G_2$.}}
+	\caption{\textit{Our model overview. This architecture is borrowed from MUNIT\cite{munit} with some auxiliary components added by us. The 2 VAEs are swapped to learn distribution matching between 2 domains. Where $s_i$ and $c_i$ are respectively style latent code and content latent code of domain $i$. We added an auxiliary feature matching loss to stabilize GANs training, as well as a data augmentation module based on \cite{augmentor} that performs elastic distortion on the target domain images, this is to widen the possible samples space for $G_2$.}}
 	\label{fig:model-overview}
 \end{figure}
 
-Similar to image-to-image translation models \cite{cycle-gan}\cite{bicycle-gan}\cite{disco-gan} and \cite{munit}, our model defines 2 main losses for the generators. That is reconstruction loss and adversarial loss. However, unlike CycleGAN, we don't rely on a cycle-consistency loss as it would impede the shape transformation capability of the generator. Instead to regularize the latent data distribution, our model uses a L1 loss between the encoded content code and the extracted content code of the translated image to enforce distribution matching. 
+Similar to image-to-image translation models \cite{cycle-gan}\cite{bicycle-gan}\cite{disco-gan} and \cite{munit}, our model defines 2 main losses for the generators, which are cycle-consistency reconstruction loss and adversarial loss. However, unlike CycleGAN, our cycle-consistency loss is done via the content code of the input image as well as the image itself.
 
-Our generator architecture is borrowed from the MUNIT model \cite{munit} where each generator is comprised of 2 VAEs that can encode and decode the images content and style features. The encoder $E_i$ and decoder $G_i$ factorizes the domain latent code into a content code $c_i$ and style code $s_i$, the formulation is as followed, with the subscription $i$ = (1, 2) denotes the belonged domain:
+Our generator architecture is borrowed from the MUNIT model \cite{munit} where each generator is comprised of 2 VAEs that can encode and decode the images' content and style features. The encoder $E_i$ and decoder $G_i$ factorizes the domain latent code into a content code $c_i$ and style code $s_i$, the formulation is as followed, with the subscription $i$ = (1, 2) denotes the corresponding domain:
 \[(c_i, s_i) =  (E_{c_i}(x_i), E_{s_i}(x_i)) = E_i(x_i)\]
 
 To do image-to-image translation, we perform swapping of the encoder-decoder pairs between 2 domains. That is, to translate an image $x_1$$\in$$X_1$ to $X_2$, first, we extract the content latent code $c_1$ of $x_1$ and randomly samples a style latent code $s_2$ from the prior Gaussian distribution $q$($s_2$), then we input these latent codes into $G_2$ to produce the final output image $x_{1\rightarrow2}$ and vice versa for $x_{2\rightarrow1}$. The formulations is as follow:
@@ -606,7 +573,7 @@ To do image-to-image translation, we perform swapping of the encoder-decoder pai
 \[x_{2\rightarrow1} = G_2(c_2, s_1)\]
 
 \subsection{Objective}
-Similar to MUNIT\cite{munit}, we use 2 main losses that encourage reconstruction from the generators.
+Similar to MUNIT\cite{munit}, we use 2 main losses to encourage cycle-consistency from the generators.
 \begin{itemize}
 	\item Latent reconstruction: Given content latent code and style latent code encoded during image-to-image translation, we should be able to reconstruct the same latent codes from the output image.
 \[L^{c_1}_{recon} = E_{{c_1}\sim p(c_1), s_2 \sim q(s_2)}[||E^c_2(G_2(c_1,s_2)) - c_1||_1]\]
@@ -615,7 +582,7 @@ Similar to MUNIT\cite{munit}, we use 2 main losses that encourage reconstruction
 \[L^{x_1}_{recon} = E_{{x_1}\sim p(x_1)}[||G_1(E^c_1(x_1), E^s_1(x_1)) - x_1||_1]\]
 \end{itemize}
 
-We used a feature matching loss\cite{fm-loss} to stabilize GAN training, we find that this prevents mode collapsing from happening and encourages the generator to produce results that are close to features in their corresponding domain.
+We added an auxiliary feature matching loss from\cite{fm-loss} to stabilize GAN training, we find that this prevents mode collapsing from happening and encourages the generator to produce results that are close to features in their corresponding domain.
 
 \[L_{FM}(G, D) = \frac{1}{n - 1} \sum_{i=1}^{n-1} ||E_{x~p_data}f_i(x) - E_{z~p_z}f_i(G(z))||_2^2 \]
 
@@ -626,13 +593,13 @@ Adversarial loss is used to encourage indistinguishable generated results from t
 For the discriminator, LSGan objective \cite{ls-gan} is used. Since regular GAN adopts sigmoid cross entropy loss function which can leads to vanishing gradients problems, a least square loss objective will be more effective as it can penalize outlier data so that the generator can generate samples more inline with the real data distribution.
 
 \[L(E_1, E_2, G_1, G_2, D_1, D_2) = L^{x_1}_{GAN} + L^{x_2}_{GAN} + {\lambda}_x(L^{x_1}_{recon} + L^{x_2}_{recon}) \]
-\[+ {\lambda}_c(L^{c_1}_{recon} + L^{c_2}_{recon}) + {\lambda}_s(L^{s_1}_{recon} + L^{s_2}_{recon}) + {\lambda}_{HOG}(HOG(x_{1\rightarrow 2}) - HOG(x_1))\]
+\[+ {\lambda}_c(L^{c_1}_{recon} + L^{c_2}_{recon}) + {\lambda}_s(L^{s_1}_{recon} + L^{s_2}_{recon}) + {\lambda}_{fm}(L_{FM\_A} + L_{FM\_B}) +(HOG(x_{1\rightarrow 2}) - HOG(x_1))\]
  
-Our total loss is the weighted sum of the reconstruction losses and the adversarial losses as well as our HOG loss. Since we augment the dataset during training, we observe that a lightly weighted HOG loss can help to discourage the generators from over-deforming the characters shape.
+Total loss is the weighted sum of the reconstruction losses, adversarial losses, and feature matching losses of each domain.
 
 Since the encoder decoder pairs are swapped, in order to do distribution matching, the variational autoencoders are expected to match the 2 content latent spaces with each other, while the 2 style latent spaces are matched with a prior Gaussian distribution. Thus, the optimal matching of latent distributions should be:
 \[p(c_1) = p(c_2), p(s_1) = q(s_1), p(s_2) = q(s_2)\]
-Where $c_i$ is the content latent code, $s_i$ is the style latent code with $i$ = (1, 2). $p$ and $q$ are the encoded distribution latent space and the prior Gaussian distribution, respectively. The above proposition states that the style latent distribution of both domain should match their Gaussian priors and the content latent distributions must be domain-invariant, meaning the content distribution must match. Although no regularization term are explicitly stated, this loss function has the implicit effect of achieving the optimality as stated by MUNIT\cite{munit} in their \textit{Theoretical Analysis}.
+Where $c_i$ is the content latent code, $s_i$ is the style latent code with $i$ = (1, 2). $p$ and $q$ are the encoded distribution latent space and the prior Gaussian distribution, respectively. The above proposition states that the style latent distribution of both domains should match their Gaussian priors and the content latent distributions must be domain-invariant, meaning the content distribution must match. Although no regularization terms are explicitly stated, this loss function has the implicit effect of achieving the optimality as stated by MUNIT\cite{munit} in their \textit{Theoretical Analysis}.
 
 Another expected distributions matching is the joint data distribution.
 \[p(x_1, x_1\rightarrow2) = p(x_2\rightarrow1, x_2)\]
@@ -648,14 +615,14 @@ Where $x_i$ is the source image, $x_{i\rightarrow j}$ is the translation image f
 \end{figure}
 The generator architecture is demonstrated in \textbf{Figure \ref{fig:gen-architecture}}. The style encoder includes several strided convolutional layers, followed by a global average pooling and fully connected layer. In the original MUNIT paper\cite{munit}, 64 convolutional layers were used on complex structured images such as scenery, animals, or painting. Since our dataset consists of images with less complicated colors as well as structures, we only used 32 layers for the encoders.
 
-The content encoder downsamples the input with several strided convolutional layers and feed it to several residual blocks \cite{resnet} to further process it, all the convolutional layers are followed by Instance Normalization \cite{instance-norm}. The content encoders also has only 32 convolutional layers.
+The content encoder downsamples the input with several strided convolutional layers and feeds it to several residual blocks \cite{resnet} to further process it, all the convolutional layers are followed by Instance Normalization \cite{instance-norm}. The content encoders also have only 32 convolutional layers.
 
-The decoder reconstruct the image from a pair of content and style codes. The content code is processed with convolutional layers and upsampling, the style code parameters are learned by a Multi layer perceptron (MLP) \cite{mlp} network to generate the applied style. The original MUNIT paper\cite{munit} used a 256 layers MLP while we only used 128.
+The decoder reconstructs the image from a pair of content and style codes. The content code is processed with convolutional layers and upsampling, the style code parameters are learned by a Multilayer perceptron (MLP) \cite{mlp} network to generate the applied style. The original MUNIT paper\cite{munit} used a 256 layers MLP while we only used 128.
 
 
 \subsection{Discriminator architecture}
 
-In the original paper, MUNIT \cite{munit} employs a multi-scale discriminators from \cite{multi-scale-discri} that can evaluate the generated results at 3 different resolution scales that can guide the generators to produce images that are globally consistent with finer details for complicated and high-resolution-required images like scenery, city pictures. However, since our dataset don't posses complex structure nor high resolution, we chose to employ a different discriminator structure that offers a simpler architecture with less overheads of having to deploy 3 different scale discriminator networks and operate on the same idea of global-context-aware discrimination. That is the dilated convolutional discriminator architecture by GANimorph\cite{ganimorph}. 
+In the original paper, MUNIT \cite{munit} employs multi-scale discriminators from \cite{multi-scale-discri} that can evaluate the generated results at 3 different resolution scales, which can guide the generators to produce images that are globally consistent with finer details for complicated and high-resolution-required images like scenery, city pictures. However, since our dataset doesn't possess complex structures nor high-resolution images, we chose to employ a different discriminator structure that offers a simpler architecture with fewer overheads of having to deploy 3 different scale discriminator networks and operate on the same idea of global-context-aware discrimination. That is the dilated convolutional discriminator architecture by GANimorph\cite{ganimorph}.
 
 \begin{figure}[h]
 	\centering
@@ -664,9 +631,9 @@ In the original paper, MUNIT \cite{munit} employs a multi-scale discriminators f
 	\label{fig:discri-architecture}
 \end{figure}
 
-The discriminator architecture is demonstrated in \textbf{Figure \ref{fig:discri-architecture}}. The discriminator is a fully-convolutional segmentation network. A skip connection is used to preserve the network's view of local context.
+The discriminator architecture is demonstrated in \textbf{Figure \ref{fig:discri-architecture}}. The discriminator is a fully convolutional segmentation network. A skip connection is used to preserve the network's view of the local context.
 
-Previous approaches \cite{cycle-gan}\cite{disco-gan} use patch-based discriminators to evaluate fake samples where patches of the image are evaluated independently and assigned a score, these scores are summed up and is treated as evaluation score for the whole image. This allows for fast convergence on generators since they will only need to focus on generating realistic patches rather than trying to learn global spatial context of the image, thus leads to the fake samples shapes rarely get transformed beyond its original boundary.
+Previous approaches \cite{cycle-gan}\cite{disco-gan} use patch-based discriminators to evaluate fake samples where patches of the image are evaluated independently and assigned a score, these scores are summed up and are treated as evaluation score for the whole image. This allows for fast convergence on generators since they will only need to focus on generating realistic patches rather than trying to learn the global spatial context of the image, this leads to the shapes of the fake samples rarely get transformed beyond their original boundary.
 
 \cite{ganimorph} reframed discrimination as a semantic segmentation problem - finding real or fake regions of the image - by using dilated convolution networks for the discriminators. This allows the discriminator to implicitly learn spatial global context as the receptive fields are expanded with each convolution layers, while the skip connection can preserve the local information of its current view, thus, information from further away in the image are taken into account to evaluate whether a region should fit into an image.
 
@@ -683,13 +650,13 @@ Previous approaches \cite{cycle-gan}\cite{disco-gan} use patch-based discriminat
 
 We tested and trained our model on the existing ETL dataset\cite{etl} which includes both font-styled characters as well as handwritten samples. We used an extractor tool by \cite{etl-extractor} to extract all the Japanese character images from the original dataset.
 
-Our training dataset is separated into 2 domains, a font-styled domain and handwritten domain, denoted A and B respectively. Domain A includes over 5000 samples while domain B has nearly 7000. We selectively chose character images that have only font style samples as our domain A data. While domain B includes a variety of handwritten style samples including images that has background noise like paper texture, white background and some samples from the Lantingkai dataset of CASIA-HWDB\cite{casia} to increase diversity in generated samples.
+Our training dataset is separated into 2 domains, a font-styled domain and a handwritten domain, denoted A and B respectively. Domain A includes over 5000 samples while domain B has nearly 7000. We selectively chose character images that have only font style samples as our domain A data. While domain B includes a variety of handwritten style samples including images that has background noise like paper texture, white background, and some samples from the calligraphy dataset of CASIA-HWDB\cite{casia} to increase diversity in generated samples.
 
 \section{Experiments}
 
 \subsection{Limitations of CycleGAN}
 
-We trained the original CycleGAN on the prepared dataset with parameters as followed: $lambda_A = 10$, $lambda_B = 10$, $lambda_{idt} = 0.5$. This is the default parameters of the CycleGAN source code as this produce the most balance results for image-to-image translation problems. We trained the network on Colab Pro GPUs for 150 epochs, the first 100 epochs were trained with a learning rate of 0.0002 and linearly decayed to 0 from epoch 101 to 150.
+We trained the original CycleGAN on the prepared dataset with parameters as followed: $lambda_A = 10$, $lambda_B = 10$, $lambda_{idt} = 0.5$. These are the default parameters of the CycleGAN source code as this produces the most balance results for image-to-image translation problems. We trained the network on Colab Pro GPUs for 150 epochs, the first 100 epochs were trained with a learning rate of 0.0002 and linearly decayed to 0 from epoch 101 to 150.
 
 \begin{figure}[h]
 	\centering
@@ -698,9 +665,9 @@ We trained the original CycleGAN on the prepared dataset with parameters as foll
 	\label{fig:150-epochs}
 \end{figure}
 
-The results show that the style of domain B is successfully transferred while the content is partially preserved, especially with white background style whereas images with applied noisy background style has lost significantly its content feature. 
+The results show that the style of domain B is successfully transferred while the content is partially preserved, especially with white background style whereas images with applied noisy background style have lost significantly their content feature.
 
-We then added another loss which will be called HOG loss, where we calculate Histogram of gradient (HOG) \cite{hog} on the source image, this gives us a vector representation of edge's direction distribution in the original image, this can be considered a description of the character itself. We apply the same process to the translated sample, then calculate the square differences between two vectors, this gives us the HOG loss. The idea is to encourage the generators preserve as much as possible the character features.
+We then added another loss which will be called HOG loss, where we calculate the Histogram of gradient (HOG) \cite{hog} of the source image, this gives us a vector representation of edges' direction distribution in the original image, this can be considered a feature description of the character itself. We apply the same process to the translated sample, then calculate the square differences between two vectors, this gives us the HOG loss. The idea is to encourage the generators to preserve as much as possible the character features.
 
 \begin{figure}[h]
 	\centering
@@ -709,7 +676,7 @@ We then added another loss which will be called HOG loss, where we calculate His
 	\label{fig:hog}
 \end{figure}
 
-We continued training CycleGAN for an additional 20 epochs with added HOG loss, the parameters are as followed: $lambda_A = 10$, $lambda_B = 10$, $lambda_{idt} = 0.3$, $lambda_{structure} = 0.2$, where $lambda_{structure}$ is weight term for HOG loss.
+We continued training CycleGAN for an additional 20 epochs with the added HOG loss, the parameters are as followed: $lambda_A = 10$, $lambda_B = 10$, $lambda_{idt} = 0.3$, $lambda_{structure} = 0.2$, where $lambda_{structure}$ is the weight term for HOG loss.
 
 \begin{figure}[H]
 	\centering
@@ -719,8 +686,8 @@ We continued training CycleGAN for an additional 20 epochs with added HOG loss, 
 \end{figure}
 
 However, since the HOG loss only promotes preservation for the character shape but does not account for the target styles, we found that the generator will deviate from other styles of the target domains in preference of the white background style as it is much easier to reconstruct the character feature in this distribution area, thus leads to a decrease in diversity of generated styles.
- 
-Since CycleGAN can only do 1:1 mapping, it is hard if not impossible to have diverse results for one input image. Leveraging the fact that ETL dataset has a lot of similar, near identical images of the same characters, we thought it might be possible to have the network map these similar looking pictures to a larger samples space in the target domain. We experimented with this by decreasing $lambda_A$, $lambda_{idt}$ in favor of our $lambda_{structure}$ and $lambda_B$, in the loss function terms. We also augmented samples of domain B by performing elastic distortion on the images. The idea is by decreasing the cycle loss weight of domain A - intuitively, by shifting the generator's attention away from focusing too much on reconstruction of the input image, we can have a more flexible mapping to the target domain space of possible mapping functions while still preserve the original content features by means of enforcing HOG loss. The augmentation was to expand the possible target domain distribution space. However, we didn't notice significant differences with the generated results for similar pictures of same characters.
+
+Since CycleGAN can only do 1:1 mapping, it is hard if not impossible to have diverse results for one input image. Leveraging the fact that the ETL dataset has a lot of similar, near-identical images of the same characters, we thought it might be possible to have the network map these similar-looking pictures to a larger sample space in the target domain. We experimented with this by decreasing $lambda_A$, $lambda_{idt}$ in favor of our $lambda_{structure}$ and $lambda_B$, in the loss function terms. We also augmented samples of domain B by performing elastic distortion on the images. The idea is by decreasing the cycle loss weight of domain A - intuitively, by shifting the generator's attention away from focusing too much on the reconstruction of the input image - we can have a more flexible mapping to the target domain space of possible mapping functions, while still preserve the original content features through enforcing HOG loss. The augmentation was to expand the possible target domain distribution space. However, we didn't notice significant differences with the generated results for similar pictures of same characters.
 
 \begin{figure}[h]
 	\centering
@@ -731,7 +698,7 @@ Since CycleGAN can only do 1:1 mapping, it is hard if not impossible to have div
 
 \subsection{Experiments with MUNIT}
 
-We trained the original MUNIT\cite{munit} network to serve as comparison against our network. We used the same training configurations as that of the edges to handbags experiment in the original paper as this was the most common configurations, with others differ only in miscellaneous configuration fields. The network was trained for 500000 iterations and for the optimizer, we changed the learning rate decay frequency to once every 20000 iterations after the 250000th iteration. We also performed elastic distortion data augmentation on the handwritten domain. The results are shown in \textbf{Figure \ref{fig:munit-results}}.
+We trained the original MUNIT\cite{munit} network to serve as comparison against our network. We used the same training configurations as that of the \textit{edges to handbags} experiment in the original paper as this was the most common configurations, with others differ only in miscellaneous configuration fields. The network was trained for 500000 iterations, and for the optimizer, we changed the learning rate decay frequency to once every 20000 iterations after the 250000th iteration. We also performed elastic distortion data augmentation on the handwritten domain. The results are shown in \textbf{Figure \ref{fig:munit-results}}.
 
 \begin{figure}[H]
 	\centering
@@ -762,7 +729,7 @@ We trained our model for 150 epochs with learning rate set to 0.0002 for the fir
 	\label{fig:kanji-gan-results}
 \end{figure}
 
-With the input data now being mapped as distributions in the latent space, with additional style noise, the network should be able to produce differently looking images with a more variety in style. However, we found that the network is only able to reconstruct content of the source image in the slim strokes, cleanly looking style, as this was probably the easiest style to learn compare to the relatively more complex ones as shown in \textbf{Figure \ref{fig:kanji-gan-results}}. This is similar to the problem we encountered with CycleGAN. Adding HOG loss has the same outcome as CycleGAN in that KanjiGAN will also steer away from generating more complex styles as it was harder to reconstruct the source's content. 
+With the input data now being mapped as distributions in the latent space, with additional style noise, the network should be able to produce different-looking images with more variety in style. However, we found that the network is only able to reconstruct the content of the source image in the slim strokes, cleanly looking style, as this was probably the easiest style to learn compared to the relatively more complex ones as shown in \textbf{Figure \ref{fig:kanji-gan-results}}. This is similar to the problem we encountered with CycleGAN. Adding HOG loss has the same outcome as CycleGAN in that KanjiGAN will also steer away from generating more complex styles as it was harder to reconstruct the source's content.
 
 \begin{figure}[H]
 	\centering
@@ -778,7 +745,7 @@ With the input data now being mapped as distributions in the latent space, with 
 	\label{fig:kanji-gan-results-3}
 \end{figure}
 
-We observe that our model is more stable than MUNIT and able to produce more samples than CycleGAN. However, ours limitations are that for more complex characters shape, ours isn't able to fully reconstruct the characters shape, this is also a problem in MUNIT, whereas CycleGAN excels at this dues to its cycle-consistence objective. Furthermore, our results only exhibit limited shape variety when translating from the ETL font style whereas lacking in the lantingkai font. Thus, we wish to improve upon these limitations in future research.
+We observe that our model is more stable than MUNIT and able to produce more samples than CycleGAN. However, our limitations are that for more complex characters shape, ours isn't able to fully reconstruct the shape of the character, this is also a problem in MUNIT, whereas CycleGAN excels at this dues to its patch-based discrimination objective. Furthermore, our results only exhibit limited shape variety when translating from the ETL font style whereas lacking in the lantingkai font. Thus, we wish to improve upon these limitations in future research.
 
 \begin{figure}[H]
 	\centering
@@ -789,24 +756,24 @@ We observe that our model is more stable than MUNIT and able to produce more sam
 
 \section{Evaluation}
 Since GANs generators are trained alongside discriminators serving as evaluations for its generated results until both networks reach an equilibrium, GANs have no objective function, thus makes it hard to compare performance between different models \cite{training-gans}.
-Thus, we evaluate our model against others with qualitative and quantitative methods that have been proven to best evaluate GANs performance based on a number of criteria\cite{gan-measure}.
+Thus, we evaluate our model against others using qualitative and quantitative methods that have been proven to best evaluate GANs performance based on some criteria\cite{gan-measure} that are discrimination matching and humans evaluations.
 
 \subsection{Qualitative evaluation}
-One of the easiest and perhaps most intuitive method is qualitative evaluation which involve using visual examination by humans as quality evaluation for GANs. 
+One of the easiest and perhaps most intuitive methods is a qualitative evaluation which involves using visual examination by humans as quality evaluation for GANs.
 
-We conduct a survey in which participants were asked to discern between real and fake images of handwritten Kanji characters. Real images are written by humans while fake images are generated by our model KanjiGAN. The participants were first asked to evaluate their level of experience with either Kanji or Chinese characters, this consequently divides the participants into 3 groups: very experienced, little experienced, inexperienced -  we will refer to these groups as group 1, 2, 3 respectively. 51 questions with 51 corresponding images (with \textbf{25 real} and \textbf{26 fake} samples) were then given, which ask participants to discern for each images whether they are real or fake. With each correct answer, a score value of 1 is given, maximum score is 51.
+We conduct a survey in which participants were asked to discern between real and fake images of handwritten Kanji characters. Real images are written by humans while fake images are generated by our model KanjiGAN. The participants were first asked to evaluate their level of experience with either Kanji or Chinese characters, this consequently divides the participants into 3 groups: very experienced, little experienced, inexperienced - we will refer to these groups as group 1, group 2, and group 3 respectively. 51 questions with 51 corresponding images (with \textbf{25 real} and \textbf{26 fake} samples) were then given, which ask participants to discern for each image whether they are real or fake. With each correct answer, a score value of 1 is given, the maximum score is 51.
 
-We managed to gather 143 survey participants from our lab mates, our class members and members of a Japanese Facebook study group \cite{fb-group}, thus we would like to express our thanks to all of them for participating in our experiment. 
+We managed to gather 143 survey participants from our lab mates, our class members and members of a Japanese Facebook study group \cite{fb-group}, thus we would like to express our thanks to all of them for participating in our experiment.
 
-Group 1 made up \textbf{78,3\%} of all participants with an average score of \textbf{31,49}. Group 2 of \textbf{18.7\%} participants has an average of \textbf{27,4}. Group 3 only made up \textbf{2,8\%} with 4 participants manages to score \textbf{33,75} on average. Numbers of fake samples that most participants have trouble discerning from reals are 9 out of 26.
+Group 1 made up \textbf{78,3\%} of all participants with an average score of \textbf{31,49}. Group 2 of \textbf{18.7\%} participants has an average of \textbf{27,4}. Group 3 only made up \textbf{2,8\%} with 4 participants manages to score \textbf{33,75} on average. The number of fake samples that most participants have trouble discerning from reals is 9 out of 26.
 
-We observe that most participants are able to discern real from fake images, due to the fact that they were able to discern a distinguish pattern from the real images. They noticed that real images are cleaner looking and the characters have slimmer strokes, although some participants did say that they weren't able to pick up this pattern at first glance.
+We observe that most participants were able to discern real from fake images, due to the fact that they can identify a distinct pattern from the real images, that is real images are cleaner looking and the characters have slimmer strokes, although some participants did say that they weren't able to pick up this pattern at first glance.
 
 Thus, we conclude that although our results underperform, this is due to the fact that our style transfer result was not fully successful. This is something we would like to improve upon in future research.
 
 \subsection{Quantitative evaluation}
 
-We use Frechet Inception Distance (FID) which was introduced in \cite{fid} to evaluate KanjiGAN, CycleGAN and MUNIT against real handwritten data distribution. The FID score measures similarity between different distributions in the feature encoding space of pictures. It uses the final pooling layers of the Inception network trained on datasets of real handwritten images, images generated by CycleGAN, MUNIT and KanjiGAN, to captures the statistic of image features then calculate the distance between these distributions, this denotes the FID score, a lower score means 2 distributions are closer to each other. We perfrom FID on pairs of real images and samples by CycleGAN, KanjiGAN, MUNIT respectively. The results are shown in \textbf{Table \ref{tbl:fid}}.
+We use Frechet Inception Distance (FID) which was introduced in \cite{fid} to evaluate KanjiGAN, CycleGAN, and MUNIT against real handwritten data distribution. The FID score measures similarity between different distributions in the feature encoding space of pictures. It uses the final pooling layers of the InceptionV3 network trained on datasets of real handwritten images, images generated by CycleGAN, MUNIT, and KanjiGAN, to captures the statistic of image features then calculate the distance between these distributions, this denotes the FID score, a lower score means 2 distributions are closer to each other. We perform FID on pairs of real images and samples by CycleGAN, KanjiGAN, and MUNIT respectively. The results are shown in \textbf{Table \ref{tbl:fid}}.
 
 \begin{table}[h]
 	\centering
@@ -819,9 +786,9 @@ We use Frechet Inception Distance (FID) which was introduced in \cite{fid} to ev
 	\end{tabular}
 \end{table}
 
-Our model scores a 2nd lowest score, beating out CycleGAN but losing to MUNIT. We see that MUNIT has lowest score out of 3 models which means its data distribution is closest to the real dataset. However, human examination shows that this does not indicate realistic looking characters since lots of samples generated by MUNIT are incomprehensible to human. Since FID can only compare features in low-dimensional encoding space, it only cares about realistic looking strokes and not the global context of the image, thus MUNIT was able to win out against ours and CycleGAN. This means that MUNIT prioritizes learning the style over preserving actual content of the source image, thus making it much closer to the real distribution.
+Our model scores the 2nd lowest score, beating out CycleGAN but losing to MUNIT. We see that MUNIT has the lowest score out of the 3 models which means its data distribution is closest to the real dataset. However, human examination shows that this does not indicate realistic-looking characters since lots of samples generated by MUNIT are incomprehensible to humans. Since FID can only compare features in low-dimensional encoding space, it only cares about realistic-looking strokes and not the global context of the image, thus MUNIT was able to win out against ours and CycleGAN. This means that MUNIT prioritizes learning the style over preserving the actual content of the source image, thus making it much closest to the real distribution.
 
-We visualize these distributions 3D using Tensorboard. We observe that the samples generated by KanjiGAN and MUNIT are much bigger and more spread out than those by CycleGAN, this indicates a more diverse distributions but realistic enough to the real image domain. KanjiGAN distributions are more spread out than that of MUNIT but still close enough to the real distribution indicating a more variety of samples from one source image.
+We visualize these distributions 3D using Tensorboard. We observe that the samples generated by KanjiGAN and MUNIT are much bigger and more spread out than those by CycleGAN, this indicates a more diverse distribution but realistic enough to the real image domain. KanjiGAN distributions are more spread out than that of MUNIT but still close enough to the real distribution indicating a more variety of samples from one source image.
 
 \begin{figure}[H]
 	\centering
@@ -847,11 +814,11 @@ We visualize these distributions 3D using Tensorboard. We observe that the sampl
 \chapter{Conclusion}
 \label{chap:conclusion}
 
-In this thesis, we proposed KanjiGAN - a new GAN model for the task of generating samples of handwritten Japanese characters from existing font-styled characters. KanjiGAN combines approaches from multimodal GAN MUNIT\cite{munit} and shape deformation improvement method of GANimorph\cite{ganimorph}, specifically we borrow the generators from MUNIT to pair with dilated discriminators architecture from GANimorph, with an auxiliary feature matching loss for stabilizing GANs training. We also added an augmentation module that performs elastic distortion on the target domain images to widen the possible sample space for the target generator.
+In this thesis, we proposed KanjiGAN - a new GAN model for the task of generating samples of handwritten Japanese characters from existing font-styled characters. KanjiGAN combines approaches from multimodal GAN MUNIT\cite{munit} and shapes deformation improvement method of GANimorph\cite{ganimorph}. Specifically, we borrow the generators from MUNIT to pair with dilated discriminators architecture from GANimorph, with an auxiliary feature matching loss for stabilizing GANs training. We also added an augmentation module that performs elastic distortion on the target domain images to widen the possible sample space for the target generator.
 
-We experimented with CycleGAN - a GAN architecture for unpaired image-to-image translation task, MUNIT and evaluated them against our model using both qualitative and quantitive methods. The result shows that our model is more stable than MUNIT and able to produce more samples than CycleGAN.
+We experimented with CycleGAN - a GAN architecture for unpaired image-to-image translation task, MUNIT - a multimodal unsupervised image-to-image translation network, and evaluated them against our model using both qualitative and quantitive methods. The result shows that our model is more stable than MUNIT and able to produce more samples than CycleGAN.
 
-For our future work, we intend on improving the shape integrity of characters in more complex styles with approaches used in \cite{dense-ran}\cite{calligan}, where characters segmentation are embedded and concatenated to the latent code. This approach encodes the spatial information of the character but also allows for flexibility when decoding, thus could lead to better preservation of characters structures when dealing with complicated style like calligraphy. 
+For our future work, we intend on improving the shape integrity of characters in more complex styles with approaches used in \cite{dense-ran}\cite{calligan}, where characters segmentation are embedded and concatenated to the latent code. This approach encodes the spatial information of the character but also allows for flexibility when decoding, thus could lead to better preservation of characters' structures when dealing with complicated styles like calligraphy.
 
 \begin{thebibliography}{9}
 \section*{English}
