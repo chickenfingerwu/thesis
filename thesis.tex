@@ -283,54 +283,29 @@ Kanji is a very important aspect of Japanese literature and everyday life. In th
 \label{chap:intro}
 
 \section{Motivation}
-The availability of a large sample database is very important to design high-accuracy
-classifiers for handwritten character recognition. Though, for such a database to be manually collected either from human writers or practical documents is expensive, particularly for large characters set, for example, the Japanese Kanji. To
-collect a sufficient quantity is a time-consuming and expensive task, much more so
-for a large characters set such as the Japanese Kanji writing system with over 50,000
-characters in total and more than 2,000 commonly used characters. Kanji are
-commonly used in every aspect of Japanese’s daily life such as document writing,
-especially handwritten Kanji.
-Japanese Kanji writing system has a complex structure and rules of writing that
-require years of practice and memorization. Such skills for a long time were
+The availability of a large sample database is very important to design high-accuracy classifiers for handwritten character recognition. To collect a sufficient quantity database is a time-consuming and expensive task, much more so for a large characters set, such as the Japanese Kanji writing system with over 50,000 characters in total and more than 2,000 commonly used characters. 
+
+Kanji are commonly used in every aspect of Japanese’s daily life from billboard, instruction signs, names to documents,...To live and work in Japan, knowing Kanji is a requirements in many workplaces and faculties. The Japanese Kanji writing system has a complex structure and rules of writing that require years of practice and memorization. Such skills for a long time were
 essential in education, employment, or living in Japan. However, in the digital age,
 this might no longer be the case with the prevalence of electronic devices such as
-phones, computers, the needs for writing Kanji are becoming less and less important.
-Though, many people in Japan still consider handwriting an art form like calligraphy
-or as an artistic expression. The needs for handwritten Kanji however have not
-disappeared, as documents are still filled out by hands, or old literature that needs to be preserved, and thus need to be digitized. To digitize such large amounts of data manually would be expensive and time-consuming, that’s why a high accuracy optical recognition model is very important to automate this process. Thus, a sufficiently large database is needed.
-One of the hardest problems to tackle is perhaps identifying written kanji, since there
-is such a large amount of characters in the kanji writing system, OCR models can fail
-when met with an unfamiliar kanji given the shortage of quantity and variety of data
-samples. Manually collecting handwritten samples or asking for volunteers to write more would be very expensive and time-consuming since each Kanji would require hundreds of samples from different writers and there are thousands of Kanji characters. Thus this research project seeks to expand upon the existing dataset by
-leveraging the generative capability of Generative Adversarial Networks to
-synthesize new samples from existing data, using a variety of generative techniques
-that have been proven to produce highly authentic results. Another goal is to provide
-a pre-trained model capable of synthesizing data samples for new data samples.
-The currently available ETL Japanese handwritten dataset \cite{etl} currently has roughly 200
-samples for over 2000 kanji character, with this project, a more variety of samples
-and new data can be added.
+phones, computers, where any Kanji word you might need can be typed out for you, thus the needs for knowing how to write Kanji is becoming less and less important. Though, many people in Japan still consider writing Kanji an art form like calligraphy
+or as an artistic expression. 
+
+The needs for handwritten Kanji however have not disappeared, as documents are still filled out by hands, or old literature that needs to be preserved, and thus need to be digitized. To digitize such large amounts of data manually would be expensive and time-consuming, that’s why a high accuracy optical characters recognition (OCR) model is very important to automate this process. Thus, a sufficiently large database is needed. One of the hardest problems to tackle is perhaps identifying written kanji, since there
+is such a large amount of characters in the kanji writing system, OCR models can fail when met with an unfamiliar kanji given the shortage of quantity and variety of data samples. Manually collecting handwritten samples or asking for volunteers to write more would be very expensive and time-consuming since each Kanji would require hundreds of samples from different writers and there are thousands of Kanji characters. Thus this research project seeks to expand and improve upon the existing dataset by providing a new Generative Adversarial Networks capable of synthesizing new samples from existing data, using a variety of generative techniques
+that have been proven to produce highly authentic results.
+
+The currently available ETL Japanese handwritten dataset \cite{etl} currently has roughly 200 samples for over 2000 kanji character, with this project, a more variety of samples and new data can be added.
 
 \section{Research objective}
-The goal of this research is to improve upon the existing handwritten Japanese dataset by
-using deep learning generative-based method.
-The existing ETL dataset has provided sufficient samples for the hiragana and
-katakana alphabets with more than 2000 samples for each character, meanwhile,
-only a handful of kanji handwritten samples have been provided, not to mention, not
-all samples are handwritten but are actually in font style.
-Since Chinese characters and the Kanji writing system are so similar, I decided to
-take a look at both domains of research. Existing generative methods for similar
-logographic alphabets have mainly been focusing on generating Chinese calligraphy
-rather than handwritten styles, this may be because there is already a
-widely used handwritten Chinese dataset \cite{casia}, and not a lot of focus has been on
-generating handwritten Japanese kanjis in particular. This
-research aims to address the lack of models for generating handwritten Kanji.
+The goal of this research is to improve upon the existing handwritten Japanese dataset by using deep learning generative-based methods. The existing ETL dataset has provided sufficient samples for the hiragana and katakana alphabets with more than 2000 samples for each character, meanwhile, only a handful of kanji handwritten samples have been provided, not to mention, not
+all samples are handwritten but are actually in font style. Since Chinese characters and the Kanji writing system are so similar, we decided to take a look at both domains of research. Existing generative methods for similar logographic alphabets have mainly been focusing on generating Chinese calligraphy rather than handwritten styles, this may be because there is already a widely used handwritten Chinese dataset \cite{casia}, and not a lot of focus has been on generating handwritten Japanese kanjis in particular. This research aims to address the lack of models for generating handwritten Kanji.
 
 \section{Contribution}
-In this thesis, we propose a new model that combines approaches from previous works MUNIT\cite{munit} and GANimorph\cite{ganimorph} by using the variational-autoencoder generators from MUNIT and dilated discriminators from GANimorph to diversify the styles and shapes of generated handwritten characters, along with auxiliary loss for stabilizing GANs training. We compare our results with image-to-image translation models like CycleGAN\cite{cycle-gan}, as well as with the original MUNIT\cite{munit} model and show that our model can generate more stable and diverse results.
+In this thesis, we propose a new model that combines approaches from previous works MUNIT\cite{munit} and GANimorph\cite{ganimorph} by using the variational-autoencoder generators from MUNIT and dilated discriminators from GANimorph to diversify the styles and shapes of generated handwritten characters, along with features matching loss to stabilize GANs training. We compare our results with image-to-image translation models like CycleGAN\cite{cycle-gan}, as well as with the original MUNIT\cite{munit} model and show that our model can generate more stable and diverse results.
 
 \section{Thesis organization}
 The rest of this thesis will be catagorized as follow \textbf{Chapter \ref{chap:background}} will introduce prerequisites knowledge for our methodology. \textbf{Chapter \ref{chap:methodology}} Outlines our proposed method, implementations as well as go into details of some necessary theories. \textbf{Chapter \ref{chap:experiments}} Experiments done with the proposed model, evaluations against other models. \textbf{Chapter \ref{chap:conclusion}} final conclusion of the thesis and the achieved results, future plans.
-
 
 \newpage	
 \chapter{Background}
@@ -407,7 +382,7 @@ Since deep learning models offer automation and adaptability to new data, we dec
 
 \section{GAN paradigms}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{gan-diagram}
 	\caption{\textit{High-level diagram of how Generative adversarial network \cite{gan} works. The generator learns from real data input to generate fake samples, the disrciminator evaluates these samples and backpropagate the evaluation score to the generator. This process repeats until both networks reach an equilibrium.}}
@@ -479,14 +454,14 @@ To address the lack of diversity in the results of CycleGAN, there has been seve
 
 Another problem of CycleGAN is that it's really hard to change the shape information of a picture. This means that with a translated image, while the style maybe different, the character shape symmetry will remain the same.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{cycle-gan-result-2}
 	\caption{\textit{Lack of shape deformations in CycleGAN results. Left most column is the source image, there are many source images that are similar and each one differs only slightly, other columns are translated images of similar source pictures.}}
 	\label{fig:cycle-gan-result-2}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.7]{kanji-example}
 	\caption{\textit{Characters generated by CycleGAN. We experimented by augmenting the training data, the results don't yield significant shape deformation.}}
@@ -535,7 +510,7 @@ However, a problem with the classical model is, without the regularization of th
 
 Variational autoencoders (VAEs) solves this problem by encoding the data into distribution in the latent space as well as adding regularization terms (otherwise known as constraints) to enforce a regularized latent space. The constraints enforce the encoded distribution to match a prior distribution such as a Gaussian distribution, making it a structured and well-organized latent space, this is called \textbf{distributions matching}. An effect of a regular latent space is a gradient of the generative process where a point sampled from between two close distributions can have characteristics of both distributions. This is how we can produce new and meaningful content. The regularization term is express as the Kulback-Leibler divergence (KL loss) \cite{kl-divergence} between the encoded distribution space and the regularized distribution - the expected distribution, which can be Gaussian or any other distributions.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.9]{distribution-space}
 	\caption{\textit{An effect of a regular latent space is a gradient of the generative process where a point sampled from between two close distribution can have characteristics of both distributions.}}
@@ -549,7 +524,7 @@ Intuitively, this KL loss denotes the distance between 2 distributions - the enc
 
 \section{KanjiGAN}
 
-We proposed combining both MUNIT and \cite{ganimorph} approaches by using the generator architecture of MUNIT and discriminator of \cite{ganimorph} while adding a lightly weighted auxiliary structure loss in order to ensure the structure of the characters.
+We proposed combining both MUNIT and \cite{ganimorph} approaches by using the generator architecture of MUNIT and discriminator of \cite{ganimorph} while adding a lightly weighted features matching loss \cite{fm-loss} to stabilize GANs training.
 
 \subsection{Model architecture}
 
@@ -579,10 +554,6 @@ Similar to MUNIT\cite{munit}, we use 2 main losses to encourage cycle-consistenc
 \[L^{x_1}_{recon} = E_{{x_1}\sim p(x_1)}[||G_1(E^c_1(x_1), E^s_1(x_1)) - x_1||_1]\]
 \end{itemize}
 
-We added an auxiliary feature matching loss from\cite{fm-loss} to stabilize GAN training, we find that this prevents mode collapsing from happening and encourages the generator to produce results that are close to features in their corresponding domain.
-
-\[L_{FM}(G, D) = \frac{1}{n - 1} \sum_{i=1}^{n-1} ||E_{x~p_data}f_i(x) - E_{z~p_z}f_i(G(z))||_2^2 \]
-
 Adversarial loss is used to encourage indistinguishable generated results from the target domain.
 
 \[L^{x_2}_{GAN} = E_{c_1\sim p(c_1), s_2\sim q(s_2)}[log(1 - D_2(G_2(c_1, s_2)))] + E_{x_2\sim p(x_2)}[log D_2(x_2)]\]
@@ -590,7 +561,7 @@ Adversarial loss is used to encourage indistinguishable generated results from t
 For the discriminator, LSGan objective \cite{ls-gan} is used. Since regular GAN adopts sigmoid cross entropy loss function which can leads to vanishing gradients problems, a least square loss objective will be more effective as it can penalize outlier data so that the generator can generate samples more inline with the real data distribution.
 
 \[L(E_1, E_2, G_1, G_2, D_1, D_2) = L^{x_1}_{GAN} + L^{x_2}_{GAN} + {\lambda}_x(L^{x_1}_{recon} + L^{x_2}_{recon}) \]
-\[+ {\lambda}_c(L^{c_1}_{recon} + L^{c_2}_{recon}) + {\lambda}_s(L^{s_1}_{recon} + L^{s_2}_{recon}) + {\lambda}_{fm}(L_{FM\_A} + L_{FM\_B}) +(HOG(x_{1\rightarrow 2}) - HOG(x_1))\]
+\[+ {\lambda}_c(L^{c_1}_{recon} + L^{c_2}_{recon}) + {\lambda}_s(L^{s_1}_{recon} + L^{s_2}_{recon}))\]
  
 Total loss is the weighted sum of the reconstruction losses, adversarial losses, and feature matching losses of each domain.
 
@@ -641,7 +612,7 @@ Previous approaches \cite{cycle-gan}\cite{disco-gan} use patch-based discriminat
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.9]{data-examples}
-	\caption{\textit{Dataset samples of domain A and B}}
+	\caption{\textit{Examples of domain A and B from our dataset. The top left example is the Lantingkai font from the CASIA-HWDB\cite{casia} dataset. The middle right is a calligraphy style also from the CASIA-HWDB dataset. The rest is from the ETL\cite{etl} dataset.}}
 	\label{fig:data-examples}
 \end{figure}
 
@@ -731,7 +702,7 @@ With the input data now being mapped as distributions in the latent space, with 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.8]{kanji-gan-results-2}
-	\caption{\textit{Samples generated by our KanjiGAN. First column is the original input. KanjiGAN has been able to produce more samples with small but noticeable degrees of shape deformation.}}
+	\caption{\textit{Samples generated by our KanjiGAN. First column is the original input. KanjiGAN is able to produce more samples with small but noticeable degrees of shape deformation.}}
 	\label{fig:kanji-gan-results-2}
 \end{figure}
 
@@ -742,14 +713,7 @@ With the input data now being mapped as distributions in the latent space, with 
 	\label{fig:kanji-gan-results-3}
 \end{figure}
 
-We observe that our model is more stable than MUNIT and able to produce more samples than CycleGAN. However, our limitations are that for more complex characters shape, ours isn't able to fully reconstruct the shape of the character, this is also a problem in MUNIT, whereas CycleGAN excels at this dues to its patch-based discrimination objective. Furthermore, our results only exhibit limited shape variety when translating from the ETL font style whereas lacking in the lantingkai font. Thus, we wish to improve upon these limitations in future research.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.8]{kanji-gan-results-4}
-	\caption{\textit{For more complex characters shape, ours isn't able to fully reconstruct the images content.}}
-	\label{fig:kanji-gan-results-4}
-\end{figure}
+We observe that our model is more stable than MUNIT and able to produce more samples than CycleGAN. However, our model's limitations are that, our results only exhibit limited shape variety when translating from the ETL font  style, particularly, shape deformations only occur in small stroke, while the overall characters shape remain unchanged. Whereas shape deformation is lacking when translation from the lantingkai font. Thus, we wish to improve upon these limitations in future research.
 
 \section{Evaluation}
 Since GANs generators are trained alongside discriminators serving as evaluations for its generated results until both networks reach an equilibrium, GANs have no objective function, thus makes it hard to compare performance between different models \cite{training-gans}.
